@@ -8,6 +8,8 @@ class QuotesController < ApplicationController
     author = params[:author]
     if author
       @quotes = Quote.search_author(author).paginate(page: params[:page], per_page: 5)
+    elsif !params[:page]
+      @quotes = Quote.all
     else
       @quotes = Quote.paginate(page: params[:page], per_page: 5)
     end
