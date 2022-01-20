@@ -26,8 +26,7 @@
 ## Description
 
 _This project was created for Epicodus bootcamp to show proficiency in Rails APIs. The application is an API for users to retrieve quotes._ 
-_All users can create an account, log in, browse products, and add reviews._
-_Additionally, admins have full CRUD functionality for products and reviews._
+_All users can access quotes and post, update, delete quotes._
 
 ## System Requirements
 
@@ -49,9 +48,9 @@ _(Note: Ruby gem dependencies will be installed automatically by Bundler.)_
 
 |Usage | METHOD       | URL       | Params |
 | :--------|:------------| :---------| :------|
-|See Quotes (Paginated) | GET    | `localhost:3000/quotes?page=1` | |
+|See Quotes (Paginated) | GET    | `localhost:3000/quotes?page=1` | _page_ |
 |See A Specific Quote | GET    | `localhost:3000/quotes/:id` | |
-|Search By Quote Author | GET    | `localhost:3000/quotes?author=` | _author_ |`&page=1`
+|Search By Quote Author | GET    | `localhost:3000/quotes?author=&page=1` | _author, page_ |
 |See A Random Quote | GET    | `localhost:3000/quotes/random` | |
 |Create A Quote | POST    | `localhost:3000/quotes` | _author, content_ |
 |Update A Quote | PUT    | `localhost:3000/quotes/:id` | _author, content_ |
@@ -59,19 +58,15 @@ _(Note: Ruby gem dependencies will be installed automatically by Bundler.)_
 
 ## Responses
 
-Many API endpoints return the JSON representation of the resources created or edited. However, if an invalid request is submitted, or some other error occurs, Gophish returns a JSON response in the following format:
+When getting a single quote, expect the response to look like:
 
-## Responses
-
-```javascript
+```
 {
-  "message" : string,
-  "success" : bool,
-  "data"    : string
+  "id" : integer,
+  "content" : string,
+  "author" : string
 }
 ```
-
-
 
 ## Known Bugs
 
