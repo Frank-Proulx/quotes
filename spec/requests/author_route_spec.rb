@@ -13,7 +13,7 @@ describe "search for an author route", :type => :request do
     expect(JSON.parse(response.body).first['author']).to eq(Quote.first.author)
   end
 
-  # it 'returns status code 200' do
-  #   expect(response).to have_http_status(:success)
-  # end
+  it 'returns status code 200' do
+    expect(response).to have_http_status(:success)
+  end
 end

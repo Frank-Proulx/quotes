@@ -7,9 +7,9 @@ class QuotesController < ApplicationController
   def index
     author = params[:author]
     if author
-      @quotes = Quote.search_author(author)
+      @quotes = Quote.search_author(author).paginate(page: params[:page], per_page: 5)
     else
-      @quotes = Quote.all
+      @quotes = Quote.paginate(page: params[:page], per_page: 5)
     end
     json_response(@quotes)
   end
