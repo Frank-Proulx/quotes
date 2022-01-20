@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe "post a quote route", :type => :request do
+  let!(:quotes) { FactoryBot.create_list(:quote, 20)}
 
   before do
     post '/quotes', params: { :author => 'test_author', :content => 'test_content' }

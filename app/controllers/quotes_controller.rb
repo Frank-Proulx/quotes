@@ -1,5 +1,9 @@
 class QuotesController < ApplicationController
-
+  def random
+    @quotes = Quote.all.shuffle.sample
+    json_response(@quotes)
+  end
+  
   def index
     @quotes = Quote.all
     json_response(@quotes)
